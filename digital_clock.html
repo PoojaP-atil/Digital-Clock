@@ -1,0 +1,118 @@
+<html>
+<head>
+    <style>
+         body {
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #clock {
+            height: 130px;
+            width: 130px;
+            border-radius: 20%;
+            font-size: 36px;
+            color: black;
+            text-align: center;
+            border: 5px double  gold;
+            padding: 20px;
+            background-color: rgb(250, 233, 233);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        #watch-belt-left {
+            position: absolute;
+            height: 100px; /* Adjust belt thickness */
+            background-color: rosybrown;
+            width: 500px ;/* Adjust the width to cover the container plus border */
+            margin-right: 600px; 
+            border-radius: 45px;
+            z-index: 1;
+            text-shadow: 0 0 10px #98ad2d, 0 0 10px #98ad2d, 0 0 10px #98ad2d, 0 0 10px  #98ad2d;
+            border: 5px double  gold;
+        }
+
+        #watch-belt-right {
+            position: absolute;
+            height: 100px; /* Adjust belt thickness */
+            background-color: rosybrown;
+            width: 500px ;/* Adjust the width to cover the container plus border */
+            margin-left: 600px; 
+            border-radius: 45px;
+            z-index: 1;
+            text-shadow: 0 0 10px #98ad2d, 0 0 10px #98ad2d, 0 0 10px #98ad2d, 0 0 10px  #98ad2d;
+            border: 5px double  gold;
+        }
+
+        .circle {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color:gold;
+            position: absolute;
+            top: 45px; /* Adjust the vertical position */
+            left: 50%; /* Center horizontally */
+            z-index: 1;
+        }
+
+        #circle1 {
+            left: 55%;
+        }
+
+        #circle2 {
+            left: 65%;
+        }
+
+        #circle3 {
+            left: 75%;
+        }
+
+        #circle4 {
+            left: 85%;
+        }
+
+        #watch-hook {
+            position: absolute;
+            top: 45px;
+            width: 90px;
+            height: 10px;
+            background-color: gold;
+            border-radius: 4%;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body onload="time()">
+    <div id="watch-belt-left">
+        <div id="watch-hook"></div>
+    </div>
+    <div id="clock"></div>
+    <div id="watch-belt-right">
+        <div class="circle" id="circle1"></div>
+        <div class="circle" id="circle2"></div>
+        <div class="circle" id="circle3"></div>
+        <div class="circle" id="circle4"></div>
+    </div>
+    <script>
+        function time() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            var d = today.getDay();
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            document.getElementById("clock").innerHTML = h + ":" + m + ":" + s +"<br>"+ days[d];
+            setTimeout(time, 1000);
+        }
+    </script>
+</body>
+</html>
